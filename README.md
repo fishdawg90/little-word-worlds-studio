@@ -18,6 +18,10 @@ Keep the page in the foreground while generating on a phone. Drafts save in that
 
 Export the finished `.pack.json` and attach it to Codex to import into the game's GitHub repository. Pack generation and voice previews are billed by OpenAI. Legacy Fable speech remains an optional compatibility mode while the older Speech API is available. Existing recordings in the game are unaffected by model changes.
 
+## Default models
+
+New packs use `gpt-6-luna` for vocabulary and translations, and `gpt-image-2.5-flare` for images. These remain editable under Advanced model settings. Restoring an older draft preserves its saved model choices.
+
 ## Hosting and verification
 
 Static GitHub Pages from `main`, repository root. All assets and imports are relative to this project's URL. `npm test` checks direct API requests, catalogue fallback, name validation and short-lived voice token handling with simulated responses; no test uses a live paid API key. OpenAI CORS preflight checks were verified for the browser origin. Paid generation still requires testing with your own project's API access.
