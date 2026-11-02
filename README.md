@@ -18,6 +18,16 @@ Keep the phone unlocked and the page in the foreground while generating. Screen-
 
 On completion, the studio automatically creates a compressed ZIP containing a finished `.pack.json` and attempts to download it. If the browser blocks the automatic download, tap **Download finished ZIP**. You can also create the ZIP again or export plain JSON for the game’s browser importer. Attach the ZIP to Codex to publish it for everyone. Pack generation and voice previews are billed by OpenAI. Legacy Fable speech remains an optional compatibility mode while the older Speech API is available. Existing recordings in the game are unaffected by model changes.
 
+## Extend an existing pack
+
+Choose a pack under **Extend a pack from the game** and click **Load pack**, or open a previously exported JSON/ZIP using **Open draft / pack JSON or ZIP**. Published packs load their existing images and recordings without OpenAI calls. The original words and media are protected. Enter **Words to add**, click **Suggest extra vocabulary**, review the additions, then generate missing media. Suggestions append to the list, and generation reuses every finished asset. Packs can contain up to 200 words, with 1–52 additions per suggestion request.
+
+Prompts, models, image quality, voices and voice direction travel with exports in `pack.authoring`. Each item's `generation` also records the settings actually used for its image and recordings, so changing the defaults for additions does not rewrite an older asset's provenance. Only known authoring fields are kept; API keys are excluded. A loaded draft retains the source pack ID and original item keys. Its export updates that same pack; **Start a new pack** returns to a blank draft.
+
+Fruit & Vegetables includes the original settings recovered from its uploaded draft. The original Animals illustration prompt was not recorded; the editor labels it unavailable and offers its editable default for additions. Its known voice choices and Italian recording instructions are preserved. Existing recordings are never regenerated just by loading a pack.
+
+Attach the finished extended ZIP to Codex and ask to update the published pack. Plain JSON can also update a locally imported pack in the game. If another version has added words since your copy, load the latest published pack first so additions are not lost.
+
 ## Default models
 
 New packs use `gpt-6-luna` for vocabulary and translations, and `gpt-image-2.5-flare` for images. These remain editable under Advanced model settings. Restoring an older draft preserves its saved model choices.
